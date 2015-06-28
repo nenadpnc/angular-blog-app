@@ -1,0 +1,35 @@
+<article class="article">
+    <div class="post__wrapper--subpage">    
+        <div class="post__media"><img ng-src="article.imgSrc" alt="featured-image"></div>
+        <header class="post__header--subpage">
+            <h2 class="post__title post__title--subpage">
+                <a class="post__link post__title_link">{{ article.title }}</a>
+            </h2>
+            <time datetime="2014-06-20" class="post__date">
+                {{ article.date }}
+            </time> 
+        </header>
+        <section class="post__content">
+            {{ article.htmlTxt }}
+        </section>
+        <footer class="post__footer">
+            <div class="social social--share">
+                <span class="social__label">Share: </span>
+                <a class="social__icon social__icon--twitter" ng-click="openService('twitter')">
+                    <span class="social__icon--hidden">Twitter</span>
+                </a>
+                <a class="social__icon social__icon--fb" ng-click="openService('twitter')">
+                    <span class="social__icon--hidden">Facebook</span>
+                </a>
+                <a class="social__icon social__icon--gplus" ng-click="openService('twitter')">
+                    <span class="social__icon--hidden">Google+</span>
+                </a>
+            </div>
+            <ul class="post__meta post__meta--subpage">
+                <li ng-repeat="tag in article.tags" class="post__tag">
+                    <a class="post__link post__tag_link">{{ tag }}</a> 
+                </li>
+            </ul>
+        </footer>
+    </div>
+</article>

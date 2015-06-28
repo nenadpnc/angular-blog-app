@@ -1,0 +1,20 @@
+<div class="">
+   <p><img ng-src="{{article.imgSrc}}"></p>
+
+    <div class="post__preview el__transition">    
+        <header class="post__header">
+            <h2 class="post__title">
+                <a class="post__link post__title_link"><span>{{ article.title }}</span</a>
+            </h2>
+        </header>
+
+        <p class="post__excerpt"><a class="post__link post__readmore">{{ article.txtPreview }}</a></p>
+    </div>
+    <footer class="post__meta">
+        <ul>
+            <li class="post__tag" ng-repeat="tag in article.tags">
+                <a class="post__link post__tag_link">{{ tag }}</a>
+            </li>
+        </ul>
+    </footer>
+</div>
