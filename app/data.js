@@ -140,8 +140,18 @@ var Data = (function(){
         }
     };
     
-    function getArticles(){
-        return articles;
+    function getArticles(tag){
+        if (!tag || tag === 'all') {
+            return articles;
+        } else {
+            var arr = [];
+            for(var i = 0; i < articles.length; i++){
+                if(articles[i].tags.indexOf(tag) > -1){
+                    arr.push(articles[i]);
+                }
+            }
+            return arr;
+        }
     };
     
     function getArticleById(id){
@@ -152,13 +162,8 @@ var Data = (function(){
     
     function setArticle(article){
         for(var i = 0; i < articles.length; i++){
-           if(articles[i].id == article.id){
-               articles[i].imgSrc = article.imgSrc;
-               articles[i].title = article.title;
-               articles[i].tags = article.tags;
-               articles[i].date = article.date;
-               articles[i].htmlTxt = article.htmlTxt;
-               articles[i].txtPreview = article.txtPreview;
+           if(articles[i].id === article.id){
+               articles[i] = article;
                break;
            }
         }

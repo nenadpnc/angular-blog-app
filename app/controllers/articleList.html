@@ -1,5 +1,4 @@
-<div>
-    <article class="post tag-photo tag-music post__wrapper" ng-repeat="article in articles">
-        <single-article article="article"></single-article>
-    </article>
-</div>
+<tag-list tags="tags"></tag-list>
+<article class="post tag-photo tag-music post__wrapper" ng-repeat="article in articles" data-cols="4" data-id="{{ article.id }}">
+    <single-article article="article"></single-article>
+</article>

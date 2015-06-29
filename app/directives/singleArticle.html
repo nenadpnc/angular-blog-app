@@ -1,5 +1,5 @@
-<div class="">
-   <p><img ng-src="{{article.imgSrc}}"></p>
+<div ng-click="navigateArticle(article.id)" class="post__wrapper_helper el__transition post__wrapper_helper--notloaded">
+   <p><img ng-src="{{ article.imgSrc }}"></p>
 
     <div class="post__preview el__transition">    
         <header class="post__header">

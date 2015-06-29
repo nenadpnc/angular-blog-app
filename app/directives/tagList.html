@@ -1,0 +1,5 @@
+<div id="filter" class="align-right">
+    <span class="menu__item">Tags: </span>
+    <a ng-click="navigateTag('all')" class="menu__item tag" ng-class="menuClass('all')">all</a>
+    <a ng-repeat="tag in tags" ng-click="navigateTag(tag)" class="menu__item tag" ng-class="menuClass(tag.title)">{{ tag.title }}</a>
+</div>

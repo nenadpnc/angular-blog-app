@@ -1,9 +1,9 @@
 (function(){
     'use strict';
     
-    angular.module('blogApp'). controller('articleListCtrl', ['$scope', 'dataService', articleListCtrl]);
+    angular.module('blogApp'). controller('articleListCtrl', ['$scope', '$routeParams', 'dataService', articleListCtrl]);
     
-    function articleListCtrl($scope, dataService){
-        $scope.articles = dataService.getArticles();
+    function articleListCtrl($scope, $routeParams, dataService){
+        $scope.articles = dataService.getArticles($routeParams.tag);
     }
 }());
