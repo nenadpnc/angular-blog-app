@@ -1,0 +1,41 @@
+<form class="article" id="frmArticle">
+    <div class="container">
+        <div class="col-left">
+            <div class="col-row">
+                <label for="image">Select image: </label>
+                <select class="right" ng-model="article.imgSrc" ng-options="image.src as image.src for image in images"></select>
+            </div>
+            <div class="col-row">
+                <label for="title">Title: </label>
+                <input class="right" type="text" id="title" name="title" placeholder="Add Tilte" ng-model="article.title">
+            </div>
+            <div class="col-row">
+                <label for="txtPreview">Text preview: </label>
+                <textarea class="right" id="txtPreview" name="txtPreview" rows="3" ng-model="article.txtPreview"></textarea>
+            </div>
+            <div class="col-row">
+                <label for="htmlTxt">Text: </label>
+                <textarea class="right" id="htmlTxt" name="htmlTxt" rows="5" ng-model="article.htmlTxt"></textarea>
+            </div>
+            <div class="col-row">
+                <label for="date">Date: </label>
+                <input class="right" type="text" id="date" name="date" placeholder="Add date" ng-model="article.date">
+            </div>
+            <div class="col-row">
+                <label for="tags">Tags: </label>
+                <div class="right width-70" id="tags">
+                    <div ng-repeat="tag in tags">
+                        <input type="checkbox" id="{{ tag.id }}" ng-checked="setCheckedFlag($parent.article, tag)">
+                        <label for="{{ tag.id }}">{{ tag.title }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-row">
+                <a class="side-space pointer" ng-click="saveArticle()" id="saveArticle">Save</a>
+            </div>
+        </div>
+        <div class="col-right">
+            <img id="imgPreview" width="100%" height="auto" ng-src="{{ article.imgSrc || images[0].src }}" alt="Select image..." >
+        </div>
+    </div>
+</form>

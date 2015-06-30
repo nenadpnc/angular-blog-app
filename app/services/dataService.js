@@ -7,7 +7,11 @@
         return {
             getArticles: getArticles,
             getTags: getTags,
-            getArticleById: getArticleById
+            getArticleById: getArticleById,
+            getImages: getImages,
+            saveArticle: saveArticle,
+            addArticle: addArticle,
+            deleteArticle: deleteArticle
         };
         
         function getArticles(tag){
@@ -20,6 +24,22 @@
         
         function getArticleById(id){
             return Data.getArticleById(id);
+        }
+        
+        function getImages(){
+            return Data.images;
+        }
+        
+        function saveArticle(article){
+            Data.setArticle(article);
+        }
+        
+        function addArticle(article){
+            Data.createArticle(article);
+        }
+        
+        function deleteArticle(article){
+            Data.deleteArticle(article);
         }
     }
 }());

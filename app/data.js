@@ -1,4 +1,4 @@
-var Data = (function(){
+var Data = (function () {
     // data
     var articles = [
         {
@@ -74,7 +74,7 @@ var Data = (function(){
             htmlTxt: '<p></p><p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum.</p><blockquote><p>Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor.</p></blockquote>'
         }
     ];
-    
+
     var tags = [
         {
             id: 1,
@@ -93,7 +93,7 @@ var Data = (function(){
             title: 'nature'
         }
     ];
-    
+
     var images = [
         {
             id: 1,
@@ -127,71 +127,70 @@ var Data = (function(){
             id: 8,
             src: 'img/p3.jpg'
         }
-        
+
     ];
-    
-    function init(){
+
+    function init() {
         var articlesStorage = localStorage.getItem('articles');
-        if(!articlesStorage){
+        if (!articlesStorage) {
             localStorage.setItem('articles', JSON.stringify(articles));
-        }
-        else{
+        } else {
             articles = JSON.parse(articlesStorage);
         }
     };
-    
-    function getArticles(tag){
+
+    function getArticles(tag) {
         if (!tag || tag === 'all') {
             return articles;
         } else {
             var arr = [];
-            for(var i = 0; i < articles.length; i++){
-                if(articles[i].tags.indexOf(tag) > -1){
+            for (var i = 0; i < articles.length; i++) {
+                if (articles[i].tags && articles[i].tags.indexOf(tag) > -1) {
                     arr.push(articles[i]);
                 }
             }
             return arr;
         }
     };
-    
-    function getArticleById(id){
-        for(var i = 0; i < articles.length; i++){
-            if(articles[i].id === id) return articles[i];
+
+    function getArticleById(id) {
+        for (var i = 0; i < articles.length; i++) {
+            if (articles[i].id === id) return articles[i];
         }
     };
-    
-    function setArticle(article){
-        for(var i = 0; i < articles.length; i++){
-           if(articles[i].id === article.id){
-               articles[i] = article;
-               break;
-           }
+
+    function setArticle(article) {
+        for (var i = 0; i < articles.length; i++) {
+            if (articles[i].id === article.id) {
+                articles[i] = article;
+                break;
+            }
         }
         localStorage.setItem('articles', JSON.stringify(articles));
     };
-    
-    function createArticle(article){
-        article['id'] = articles.length + 1;
+
+    function createArticle(article) {
+        article['id'] = Math.random().toFixed(3) * 1000;
         articles.push(article);
         localStorage.setItem('articles', JSON.stringify(articles));
     };
-    
-    function deleteArticle(article){
-        for(var i = 0; i < articles.length; i++){
-           if(articles[i].id == article.id){
-               articles.remove(i);
-               break;
-           }
+
+    function deleteArticle(article) {
+        for (var i = 0; i < articles.length; i++) {
+            if (articles[i].id == article.id) {
+                articles.remove(i);
+                break;
+            }
         }
         localStorage.setItem('articles', JSON.stringify(articles));
     }
-    
-    Array.prototype.remove = function(from, to) {
-      var rest = this.slice((to || from) + 1 || this.length);
-      this.length = from < 0 ? this.length + from : from;
-      return this.push.apply(this, rest);
+
+    Array.prototype.remove = function (from, to) {
+        var rest = this.slice((to || from) + 1 || this.length);
+        this.length = from < 0 ? this.length + from : from;
+        return this.push.apply(this, rest);
     };
-    
+
     return {
         getArticles: getArticles,
         tags: tags,

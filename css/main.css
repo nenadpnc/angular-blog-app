@@ -62,6 +62,10 @@ a,
     text-align: right;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
 /* Containers */
 main {
 	background-color: #f1f1f1;
